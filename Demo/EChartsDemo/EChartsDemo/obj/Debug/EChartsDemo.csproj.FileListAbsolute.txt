@@ -28,6 +28,6 @@ D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\bin\Microsoft.AI.Web.xml
 D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\bin\Microsoft.AI.WindowsServer.xml
 D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\bin\Microsoft.ApplicationInsights.xml
 D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\obj\Debug\EChartsDemo.csprojResolveAssemblyReference.cache
 D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\obj\Debug\EChartsDemo.dll
 D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\obj\Debug\EChartsDemo.pdb
+D:\GitHub\MyEcharts\Demo\EChartsDemo\EChartsDemo\obj\Debug\EChartsDemo.csprojResolveAssemblyReference.cache
