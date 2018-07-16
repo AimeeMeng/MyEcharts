@@ -1,9 +1,9 @@
 ﻿$(function () {
-    LoadChartTree();
-    LoadChartTree2();
-    LoadChartTree3();
-    LoadChartTreemap();
-    LoadChartSunBurst();
+    //LoadChartTree();
+    //LoadChartTree2();
+    //LoadChartTree3();
+    //LoadChartTreemap();
+    //LoadChartSunBurst();
     LoadTestChart();
 });
 
@@ -72,7 +72,7 @@ function LoadChartTree() {
         }
 
         dataid = dataid + result[i].BuildTopologies.length + 1;
-
+        
     }
 
     Data[0].value = TotalValue;
@@ -199,95 +199,95 @@ var LoadChartTree2 = function () {
     var Chart = echarts.init(document.getElementById('ChartTree2'));
     var DataURL = '[{"StreetName": "南京路街道", "TacticValue":6069,"GroupID":"310101GB02","BuildTopologies":[{"AccountNumber": "0061258072", "TacticValue":2734,"BuildID":"310101A010","BuildName":"创兴金融中心",},{"AccountNumber": "0061258074", "TacticValue":2034,"BuildID":"310101A011","BuildName":"金融中心",}]}, {"StreetName": "南京路街道1", "TacticValue":6069,"GroupID":"310101GB02","BuildTopologies":[{"AccountNumber": "0061258072", "TacticValue":2734,"BuildID":"310101A010","BuildName":"创兴金融中心",},{"AccountNumber": "0061258074", "TacticValue":2034,"BuildID":"310101A011","BuildName":"金融中心",}]},{"StreetName": "南京路街道2", "TacticValue":6069,"GroupID":"310101GB02","BuildTopologies":[{"AccountNumber": "0061258072", "TacticValue":2734,"BuildID":"310101A010","BuildName":"创兴金融中心",},{"AccountNumber": "0061258074", "TacticValue":2034,"BuildID":"310101A011","BuildName":"金融中心",}]},{"StreetName": "南京路街道3", "TacticValue":6069,"GroupID":"310101GB02","BuildTopologies":[{"AccountNumber": "0061258072", "TacticValue":2734,"BuildID":"310101A010","BuildName":"创兴金融中心",},{"AccountNumber": "0061258074", "TacticValue":2034,"BuildID":"310101A011","BuildName":"金融中心",}]},{"StreetName": "南京路街道4", "TacticValue":6069,"GroupID":"310101GB02","BuildTopologies":[{"AccountNumber": "0061258072", "TacticValue":2734,"BuildID":"310101A010","BuildName":"创兴金融中心",},{"AccountNumber": "0061258074", "TacticValue":2034,"BuildID":"310101A011","BuildName":"金融中心",}]}]';
     var result = eval(DataURL);
-                var item = new Object();
-                item.name = "虚拟电厂";
-             //   item.symbol = 'image://data:image/png;base64,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';
-                item.symbol = 'iamge://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYBQTFRFzc3jxMXeqrKztra2vLzVW11d7u7ufX19hIWGyMnglpaWwMDb3NzcjY2N8vLyxsff9fX10dHRz8/P+/v7v8Db4ODg2traU1VVysvh/f39enuC1dXW5OTkycnJo6qrhYaSnZ2ds7PLlJSlra2tbG9vycrhxcbe6+vrwMDBw8Tdio+QoKChz8/UYmRkZGRrxMTEvr6+mJirjY2ba2tzubm6paWlo6O2sbLDcXR1sbGxp6i7qqu9rK3E6OjoqqqqgYGOSUpKy8vNycrex8fJ09PUx8fH6OjqdXV/o6Ojp6epv7/b/v7+wcLc////vMXG3+rrwMHb+Pj4x8jglJqaw8PdhYqKy8zifICA2uXm1d/gTk9PxtDR0Nvcsbq6d3p7y9XWZ2pqj5SVwcrLt7/AnqWlmZ+gv7/As7O0zs/jt7fR4+Pjlpemurq85ubowsLF4uLlyMndkZGenJ2v19fX2trcVlZX+fn6h4efuLnKt7e7uLnRkpOpW1tgRERE5PDx////+z0nkAAAAIB0Uk5T/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wA4BUtnAAAJWUlEQVR42uyb/VsaSRLHEYQBBERwRBJRiOBrWNTVRN2o4wU3ysibiC9oFHyJ7iab3SwX7y53hf/6dc8Mw0BgnB6Gl92H+slHh+Yz1d1V9a1udY9daToNx2JH2G7EMsF0N2JN97B6WH9zLCcdl8P61dQZLB8Y4o2xIrDQGSzvZBVXNVYEJr0dWlvVXFVYTVE1u+SruKRYzVE1vROlXBKsJqmaDxASrgpWs1QaxK0Kl4jVNJUW4VTkKmM1T6VJlC9zCVgaUGmTfAQuHksLKo1yIs/FYWlCpVWq5rgwljZUmlUQiCt3AcdftaHSrrBBXNhWNKHSsN56WMFUzq4rA0cQlqv7qlMWucvbfViPk7DSjbW8CyLdKTE2esqnh9XD6mG1FYt1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';
-                item.symbolSize = 60;
-                var data = new Array();
-                for (var i = 0; i < result.length; i++) {
-                    var itemS = new Object();
-                    itemS.name = result[i].StreetName;
-                    itemS.value = result[i].TacticValue;
-                    itemS.symbol = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAAAyCAYAAAAKqhZQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAHFSURBVGhD7dnBSgJRFMbx3q6i9tUiWkS2CXqAknFVQUVQFISIbWZEiQJdiJM6gohaKupGwaWIKLhwIYouTt0DgjYne4D7Hfiv7qx+3Lkwc9cI4xpGuXu8J8MwtM1OJxljPoyiFvZKt1p2/H5FodcIY8zHhbL7dUM7n9fa5Hm7JDMSoslkQrPZTEbZTHpp4+Ncm/ZNLz35n6lSqVCxWKTpdOpGWbfPaCtt0Lbj06KDkI/8LwFqtVpUKpV4xwAFKO6AIgQUIaAIAUUIKEJAEQKKEFCEVqKcWBfcYcBLR0GDPEGfFp0+GDJKoVCgaDTKWZZF4XBYq7LZrBvFNE3+SlTlcjnK5/MMpUO2bXMiyng85rrdLrXbbW1SELFYjDfC0q+DRZThcEiDwUCb6vU6pVIpBlIbQo0LpdPp8KIuqSMjHo9TrVbjnSK+Pgql1+tRv9/Xomq1+v+ZAhSgAEUKKEJAEQKKEFCEgCIEFCGgCAFFCChCQBECihBQhIAiBBQhoAgBRQgoQkARAorQShRcm/5CaTQafFOmSiQS5DgOZTIZbSqXy26UxVELzWaTH9KtP1Hmr5GOLV2wL46SUpfsOjYajX4EiL4BFkzdgc36pJQAAAAASUVORK5CYII=';
-                    itemS.symbolSize = 50;
-                    var itemSchild = new Array();
-                    for (var j = 0; j < result[i].BuildTopologies.length; j++) {
-                        var itemB = new Object();
+    var item = new Object();
+    item.name = "虚拟电厂";
+    //   item.symbol = 'image://data:image/png;base64,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';
+    item.symbol = 'iamge://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYBQTFRFzc3jxMXeqrKztra2vLzVW11d7u7ufX19hIWGyMnglpaWwMDb3NzcjY2N8vLyxsff9fX10dHRz8/P+/v7v8Db4ODg2traU1VVysvh/f39enuC1dXW5OTkycnJo6qrhYaSnZ2ds7PLlJSlra2tbG9vycrhxcbe6+vrwMDBw8Tdio+QoKChz8/UYmRkZGRrxMTEvr6+mJirjY2ba2tzubm6paWlo6O2sbLDcXR1sbGxp6i7qqu9rK3E6OjoqqqqgYGOSUpKy8vNycrex8fJ09PUx8fH6OjqdXV/o6Ojp6epv7/b/v7+wcLc////vMXG3+rrwMHb+Pj4x8jglJqaw8PdhYqKy8zifICA2uXm1d/gTk9PxtDR0Nvcsbq6d3p7y9XWZ2pqj5SVwcrLt7/AnqWlmZ+gv7/As7O0zs/jt7fR4+Pjlpemurq85ubowsLF4uLlyMndkZGenJ2v19fX2trcVlZX+fn6h4efuLnKt7e7uLnRkpOpW1tgRERE5PDx////+z0nkAAAAIB0Uk5T/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wA4BUtnAAAJWUlEQVR42uyb/VsaSRLHEYQBBERwRBJRiOBrWNTVRN2o4wU3ysibiC9oFHyJ7iab3SwX7y53hf/6dc8Mw0BgnB6Gl92H+slHh+Yz1d1V9a1udY9daToNx2JH2G7EMsF0N2JN97B6WH9zLCcdl8P61dQZLB8Y4o2xIrDQGSzvZBVXNVYEJr0dWlvVXFVYTVE1u+SruKRYzVE1vROlXBKsJqmaDxASrgpWs1QaxK0Kl4jVNJUW4VTkKmM1T6VJlC9zCVgaUGmTfAQuHksLKo1yIs/FYWlCpVWq5rgwljZUmlUQiCt3AcdftaHSrrBBXNhWNKHSsN56WMFUzq4rA0cQlqv7qlMWucvbfViPk7DSjbW8CyLdKTE2esqnh9XD6mG1FYt1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';
+    item.symbolSize = 60;
+    var data = new Array();
+    for (var i = 0; i < result.length; i++) {
+        var itemS = new Object();
+        itemS.name = result[i].StreetName;
+        itemS.value = result[i].TacticValue;
+        itemS.symbol = 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAAAyCAYAAAAKqhZQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAHFSURBVGhD7dnBSgJRFMbx3q6i9tUiWkS2CXqAknFVQUVQFISIbWZEiQJdiJM6gohaKupGwaWIKLhwIYouTt0DgjYne4D7Hfiv7qx+3Lkwc9cI4xpGuXu8J8MwtM1OJxljPoyiFvZKt1p2/H5FodcIY8zHhbL7dUM7n9fa5Hm7JDMSoslkQrPZTEbZTHpp4+Ncm/ZNLz35n6lSqVCxWKTpdOpGWbfPaCtt0Lbj06KDkI/8LwFqtVpUKpV4xwAFKO6AIgQUIaAIAUUIKEJAEQKKEFCEVqKcWBfcYcBLR0GDPEGfFp0+GDJKoVCgaDTKWZZF4XBYq7LZrBvFNE3+SlTlcjnK5/MMpUO2bXMiyng85rrdLrXbbW1SELFYjDfC0q+DRZThcEiDwUCb6vU6pVIpBlIbQo0LpdPp8KIuqSMjHo9TrVbjnSK+Pgql1+tRv9/Xomq1+v+ZAhSgAEUKKEJAEQKKEFCEgCIEFCGgCAFFCChCQBECihBQhIAiBBQhoAgBRQgoQkARAorQShRcm/5CaTQafFOmSiQS5DgOZTIZbSqXy26UxVELzWaTH9KtP1Hmr5GOLV2wL46SUpfsOjYajX4EiL4BFkzdgc36pJQAAAAASUVORK5CYII=';
+        itemS.symbolSize = 50;
+        var itemSchild = new Array();
+        for (var j = 0; j < result[i].BuildTopologies.length; j++) {
+            var itemB = new Object();
 
-                        itemB.name = result[i].BuildTopologies[j].BuildName;
-                        itemB.value = result[i].BuildTopologies[j].TacticValue;
-                        itemB.symbol = 'circle';
-                        itemB.symbolSize = 10;
-                        itemSchild.push(itemB);
+            itemB.name = result[i].BuildTopologies[j].BuildName;
+            itemB.value = result[i].BuildTopologies[j].TacticValue;
+            itemB.symbol = 'circle';
+            itemB.symbolSize = 10;
+            itemSchild.push(itemB);
 
+        }
+        itemS.children = itemSchild;
+        data.push(itemS);
+    }
+    item.children = data;
+
+    var option = {
+        tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        //grid: { //绘图区域网格
+        //    show: true,
+        //    borderWidth:5
+        //},
+        series: [
+            {
+                type: 'tree',
+                data: [item],
+                top: '10%',
+                bottom: '10%',
+                // symbol: 'emptyCircle',//'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
+                //可以通过 'image://url' 设置为图片，其中 URL 为图片的链接，或者 dataURI。
+                //symbolSize: 30,
+                //layout: 'radial',
+                layout: 'orthogonal',//树图的布局，有 正交 和 径向 两种。
+                ////这里的 正交布局 就是我们通常所说的 水平 和 垂直 方向，对应的参数取值为 'orthogonal' 。
+                ////径向布局 是指以根节点为圆心，每一层节点为环，一层层向外发散绘制而成的布局，对应的参数取值为 'radial' 。
+                orient: 'TB',//树图中 正交布局 的方向，也就是说只有在 layout = 'orthogonal' 的时候，该配置项才生效。
+                ////对应有 水平 方向的 从左到右，从右到左；以及垂直方向的 从上到下，从下到上。取值分别为 'LR' , 'RL', 'TB', 'BT'。
+                ////注意，之前的配置项值 'horizontal' 等同于 'LR'， 'vertical' 等同于 'TB'。
+                label: {
+                    normal: {
+                        position: 'right',
+                        //verticalAlign: 'middle',
+                        //align: 'right',
+                        fontSize: 9
                     }
-                    itemS.children = itemSchild;
-                    data.push(itemS);
-                }
-                item.children = data;
-
-                var option = {
-                    tooltip: {
-                        trigger: 'item',
-                        triggerOn: 'mousemove'
-                    },
-                    //grid: { //绘图区域网格
-                    //    show: true,
-                    //    borderWidth:5
-                    //},
-                    series: [
-                        {
-                            type: 'tree',
-                            data: [item],
-                            top: '10%',
-                            bottom: '10%',
-                            // symbol: 'emptyCircle',//'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'
-                            //可以通过 'image://url' 设置为图片，其中 URL 为图片的链接，或者 dataURI。
-                            //symbolSize: 30,
-                            //layout: 'radial',
-                            layout: 'orthogonal',//树图的布局，有 正交 和 径向 两种。
-                            ////这里的 正交布局 就是我们通常所说的 水平 和 垂直 方向，对应的参数取值为 'orthogonal' 。
-                            ////径向布局 是指以根节点为圆心，每一层节点为环，一层层向外发散绘制而成的布局，对应的参数取值为 'radial' 。
-                            orient: 'TB',//树图中 正交布局 的方向，也就是说只有在 layout = 'orthogonal' 的时候，该配置项才生效。
-                            ////对应有 水平 方向的 从左到右，从右到左；以及垂直方向的 从上到下，从下到上。取值分别为 'LR' , 'RL', 'TB', 'BT'。
-                            ////注意，之前的配置项值 'horizontal' 等同于 'LR'， 'vertical' 等同于 'TB'。
-                            label: {
-                                normal: {
-                                    position: 'right',
-                                    //verticalAlign: 'middle',
-                                    //align: 'right',
-                                    fontSize: 9
-                                }
-                            },
-                            leaves: {//叶子节点的特殊配置
-                                label: {
-                                    normal: {
-                                        position: 'bottom',
-                                        rotate: -90,//旋转角度
-                                        verticalAlign: 'middle',
-                                        align: 'left'
-                                    }
-                                }
-                            },
-                            lineStyle: {
-                                normal: {
-                                    curveness: 0.5 //树图边的曲度
-                                }
-                            },
-                            expandAndCollapse: true,//子树折叠和展开的交互，默认打开 
-                            animationDuration: 550,
-                            initialTreeDepth: 1,//树图初始展开的层级（深度）。根节点是第 0 层，然后是第 1 层、第 2 层，... ，直到叶子节点。
-                            //该配置项主要和 折叠展开 交互一起使用，目的还是为了防止一次展示过多节点，节点之间发生遮盖。
-                            //如果设置为 -1 或者 null 或者 undefined，所有节点都将展开。
-                            animationDurationUpdate: 750 //数据更新动画的时长。支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
+                },
+                leaves: {//叶子节点的特殊配置
+                    label: {
+                        normal: {
+                            position: 'bottom',
+                            rotate: -90,//旋转角度
+                            verticalAlign: 'middle',
+                            align: 'left'
                         }
-                    ]
-                }
-                Chart.setOption(option);
-                window.onresize = function () {
-                    Chart.resize();
-                };
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        curveness: 0.5 //树图边的曲度
+                    }
+                },
+                expandAndCollapse: true,//子树折叠和展开的交互，默认打开 
+                animationDuration: 550,
+                initialTreeDepth: 1,//树图初始展开的层级（深度）。根节点是第 0 层，然后是第 1 层、第 2 层，... ，直到叶子节点。
+                //该配置项主要和 折叠展开 交互一起使用，目的还是为了防止一次展示过多节点，节点之间发生遮盖。
+                //如果设置为 -1 或者 null 或者 undefined，所有节点都将展开。
+                animationDurationUpdate: 750 //数据更新动画的时长。支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的更新动画效果：
+            }
+        ]
+    }
+    Chart.setOption(option);
+    window.onresize = function () {
+        Chart.resize();
+    };
             
 }
 
@@ -604,81 +604,364 @@ var LoadChartSunBurst = function () {
     };
 }
 
+//策略因子多对多关系
 var LoadTestChart = function ()
 {
-    myChart.showLoading();
-    $.get('http://www.echarts.baidu.com/data/asset/data/les-miserables.gexf', function (xml) {
-        myChart.hideLoading();
+    var Chart = echarts.init(document.getElementById('test'));
+    var DataURL = '[{'+
+      '"F_VDName":"港泰广场虚拟发电机",'+
+      '"F_VDID":"V01G0001",' +
+      '"F_Value":8811,'+
+      '"StrategyInfo":'+
+      '['+
+        '{'+
+            '"F_VDOSID":"V01G0001OS01",'+
+           '"F_VDOSName":"全年发电策略1",' +
+             '"F_Value":163,' +
+           '"OperationInfo":'+
+      '['+
+  '{'+
+            '"FOPID":"V01G0001OS01_1",'+
+            '"FName":"操作1",' +
+              '"F_Value":45,' +
+            '"FactorInfo":'+
+             '['+
+              '{'+
+                '"F_VFID":"V01G0001F0004",'+
+                 '"F_VFName":"新风机组",'+
+                 '"F_MaxLoad":45'+
+  '}] },'+
+    '{'+
+   '"FOPID":"V01G0001OS01_2",'+
+  '"FName":"操作2",' +
+    '"F_Value":118,' +
+  '"FactorInfo":'+
+  '['+
+    '{'+
+    '"F_VFID":"V01G0001F0005",'+
+    '"F_VFName":"生活水泵A",'+
+    '"F_MaxLoad":74'+
+'},'+
+'{'+
+					'"F_VFID":"V01G0001F0006",'+
+					'"F_VFName":"生活水泵B",'+
+'"F_MaxLoad":44'+
+'}]}]},'+
+'{'+
+   '"F_VDOSID":"V01G0001OS02",'+
+   '"F_VDOSName":"夏季快速发电策略1",' +
+     '"F_Value":8648,' +
+   '"OperationInfo":'+
+  '['+
+   '{'+
+   '"FOPID":"V01G0001OS02_1",'+
+    '"FName":"操作1",' +
+      '"F_Value":2162,' +
+    '"FactorInfo":'+
+    '['+
+     '{'+
+      '"F_VFID":"V01G0001F0001",'+
+         '"F_VFName":"离心式冷机",'+
+           '"F_MaxLoad":1640'+
+'},'+
+'{'+
+					'"F_VFID":"V01G0001F0002",'+
+					'"F_VFName":"冷却水泵",'+
+'"F_MaxLoad":450'+
+'},'+
+'{'+
+ '"F_VFID":"V01G0001F0003",'+
+ '"F_VFName":"冷却塔",'+
+ '"F_MaxLoad":72'+
+'}]},'+
+'{'+
+    '"FOPID":"V01G0001OS02_2",'+
+			'"FName":"操作2",' +
+              '"F_Value":2162,' +
+			'"FactorInfo":'+
+'['+
+ '{'+
+    '"F_VFID":"V01G0001F0001",'+
+   '"F_VFName":"离心式冷机",'+
+  '"F_MaxLoad":1640'+
+'},'+
+'{'+
+   '"F_VFID":"V01G0001F0002",'+
+  '"F_VFName":"冷却水泵",'+
+ '"F_MaxLoad":450'+
+'},'+
+'{'+
+				'"F_VFID":"V01G0001F0003",'+
+			'"F_VFName":"冷却塔",'+
+'"F_MaxLoad":72'+
+'}]},'+
+'{'+
+   '"FOPID":"V01G0001OS02_3",'+
+  '"FName":"操作3",' +
+    '"F_Value":2162,' +
+  '"FactorInfo":'+
+   '['+
+     '{'+
+       '"F_VFID":"V01G0001F0001",'+
+      '"F_VFName":"离心式冷机",'+
+      '"F_MaxLoad":1640'+
+'},'+
+'{'+
+					'"F_VFID":"V01G0001F0002",'+
+					'"F_VFName":"冷却水泵",'+
+'"F_MaxLoad":450'+
+'},'+
+'{'+
+   '"F_VFID":"V01G0001F0003",'+
+   '"F_VFName":"冷却塔",'+
+  '"F_MaxLoad":72'+
+  '}]},'+
+'{'+
+    '"FOPID":"V01G0001OS02_4",'+
+    '"FName":"操作4",' +
+      '"F_Value":2162,' +
+    '"FactorInfo":'+
+    '['+
+    '{'+
+    '"F_VFID":"V01G0001F0001",'+
+    '"F_VFName":"离心式冷机",'+
+    '"F_MaxLoad":1640'+
+    '},'+
+    '{'+
+    '"F_VFID":"V01G0001F0002",'+
+    '"F_VFName":"冷却水泵",'+
+    '"F_MaxLoad":450'+
+    '},'+
+    '{'+
+    '"F_VFID":"V01G0001F0003",'+
+    '"F_VFName":"冷却塔",'+
+					'"F_MaxLoad":72'+
+'}]}]}]}]';
+    var result = eval(DataURL);
+    var factor = new Array();
 
-        var graph = echarts.dataTool.gexf.parse(xml);
-        var categories = [];
-        for (var i = 0; i < 9; i++) {
-            categories[i] = {
-                name: '类目' + i
-            };
-        }
-        graph.nodes.forEach(function (node) {
-            node.itemStyle = null;
-            node.value = node.symbolSize;
-            node.symbolSize /= 1.5;
-            node.label = {
-                normal: {
-                    show: node.symbolSize > 30
-                }
-            };
-            node.category = node.attributes.modularity_class;
-        });
-        option = {
-            title: {
-                text: 'Les Miserables',
-                subtext: 'Default layout',
-                top: 'bottom',
-                left: 'right'
-            },
-            tooltip: {},
-            legend: [{
-                // selectedMode: 'single',
-                data: categories.map(function (a) {
-                    return a.name;
-                })
-            }],
-            animationDuration: 1500,
-            animationEasingUpdate: 'quinticInOut',
-            series: [
-                {
-                    name: 'Les Miserables',
-                    type: 'graph',
-                    layout: 'none',
-                    data: graph.nodes,
-                    links: graph.links,
-                    categories: categories,
-                    roam: true,
-                    focusNodeAdjacency: true,
-                    itemStyle: {
-                        normal: {
-                            borderColor: '#fff',
-                            borderWidth: 1,
-                            shadowBlur: 10,
-                            shadowColor: 'rgba(0, 0, 0, 0.3)'
-                        }
-                    },
-                    label: {
-                        position: 'right',
-                        formatter: '{b}'
-                    },
-                    lineStyle: {
-                        color: 'source',
-                        curveness: 0.3
-                    },
-                    emphasis: {
-                        lineStyle: {
-                            width: 10
+    var TotalValue = 0;
+    var dataid = 0;
+    var legend = new Array();
+    legend.push("虚拟电厂");
+    legend.push("虚拟发电机");
+    legend.push("策略");
+    legend.push("操作");
+    legend.push("因子");
+
+
+    var Data = new Array();
+    var links = new Array();
+    var item = new Object();
+    item.id = 0;
+    item.name = "虚拟电厂";
+    item.symbol = "circle";
+    item.symbolSize = 160;
+    item.category = "虚拟电厂";
+    item.value = TotalValue;
+    Data.push(item);
+
+    for (var i = 0; i < result.length; i++) {
+      
+        TotalValue = TotalValue + result[i].F_Value;
+        dataid = dataid + 1;
+        var itemS = new Object();
+        itemS.id = dataid;
+        //itemS.id = result[i].F_VDID;
+        itemS.name = result[i].F_VDName;
+        itemS.symbol = "circle";
+        itemS.symbolSize = 70;
+        itemS.category = "虚拟发电机";
+        itemS.value = result[i].F_Value;
+        Data.push(itemS);
+
+        var linkItem = new Object();
+        linkItem.source = 0;
+        linkItem.target = dataid;
+        //linkItem.target = result[i].F_VDID;
+        links.push(linkItem);
+
+        var sourceVD = dataid;
+        for (var j = 0; j < result[i].StrategyInfo.length; j++) {
+            dataid = dataid + 1;
+            var itemB = new Object();
+            //itemB.id = result[i].StrategyInfo[j].F_VDOSID;
+            itemB.id = dataid ;
+            itemB.name = result[i].StrategyInfo[j].F_VDOSName;
+            itemB.symbol = "circle";
+            itemB.symbolSize = 30;
+            itemB.category = "策略";
+            itemB.value = result[i].StrategyInfo[j].F_Value;
+            Data.push(itemB);
+
+            var linkItemB = new Object();
+            linkItemB.source = sourceVD;
+            linkItemB.target = dataid ;
+            //linkItemB.source = result[i].F_VDID;
+            //linkItemB.target = result[i].StrategyInfo[j].F_VDOSID;
+            links.push(linkItemB);
+
+            var sourceVDOS = dataid;
+            for (var op = 0; op < result[i].StrategyInfo[j].OperationInfo.length; op++) {
+                dataid = dataid + 1;
+                var itemB = new Object();
+                //itemB.id = result[i].StrategyInfo[j].OperationInfo[op].FOPID;
+                itemB.id = dataid;
+                itemB.name = result[i].StrategyInfo[j].OperationInfo[op].FName;
+                itemB.symbol = "circle";
+                itemB.symbolSize = 30;
+                itemB.category = "操作";
+                itemB.value = result[i].StrategyInfo[j].OperationInfo[op].F_Value;
+                Data.push(itemB);
+
+                var linkItemB = new Object();
+                linkItemB.source = sourceVDOS;
+                linkItemB.target = dataid;
+                //linkItemB.source = result[i].StrategyInfo[j].F_VDOSID;
+                //linkItemB.target = result[i].StrategyInfo[j].OperationInfo[op].FOPID;
+                links.push(linkItemB);
+
+                var sourceFactor = dataid;
+                for (var fi = 0; fi < result[i].StrategyInfo[j].OperationInfo[op].FactorInfo.length; fi++) {
+                    var IsHave = false;
+                    var _dataid = dataid;
+                    for (var _factor = 0; _factor < factor.length;_factor++)
+                    {
+                        var itemkey = factor[_factor].key;
+                        var vfid = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFID;
+                        if (itemkey == vfid)
+                        {
+                            IsHave = true;
+                            _dataid = factor[_factor].value;
+                            break;
                         }
                     }
-                }
-            ]
-        };
+                    if (!IsHave)
+                    {
+                        dataid = dataid + 1;
+                        _dataid = dataid;
+                        var itemF = new Object();
+                        itemF.key = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFID;
+                        itemF.value = dataid;
+                        factor.push(itemF);
 
-        myChart.setOption(option);
-    }, 'xml');
+                        var itemB = new Object();
+                        //itemB.id = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFID;
+                        itemB.id = dataid;
+                        itemB.name = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFName;
+                        itemB.symbol = "circle";
+                        itemB.symbolSize = 30;
+                        itemB.category = "因子";
+                        itemB.value = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_MaxLoad;
+                        Data.push(itemB);
+                    }
+                    var linkItemB = new Object();
+                    linkItemB.source = sourceFactor;
+                    linkItemB.target = _dataid;
+                    //linkItemB.source = result[i].StrategyInfo[j].OperationInfo[op].FOPID;
+                    //linkItemB.target = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFID;
+                    links.push(linkItemB);
+                }
+            }
+        }
+    }
+
+    Data[0].value = TotalValue;
+
+    var option = {
+        title: {
+            text: "",
+            subtext: "",
+            top: "top",
+            left: "center"
+        },
+        tooltip: {},
+        legend: [{
+            show: true,
+            tooltip: {
+                show: true
+            },
+            selectedMode: 'true',
+            bottom: 20,
+            data: legend
+        }],
+        toolbox: {
+            show: false,
+            feature: {
+                dataView: {
+                    show: true,
+                    readOnly: true
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        animationDuration: 1000, //初始动画的时长，支持回调函数，可以通过每个数据返回不同的 delay 时间实现更戏剧的初始动画效果
+        animationEasingUpdate: 'quinticOut',//数据更新动画的缓动效果 
+        series: [{
+            name: '虚拟电厂资源拓扑',
+            type: 'graph',
+            layout: 'force',//图的布局。
+            force: {
+                repulsion: 300,//节点之间的斥力因子。
+                //支持设置成数组表达斥力的范围，此时不同大小的值会线性映射到不同的斥力。值越大则斥力越大
+                edgeLength: 120 //边的两个节点之间的距离，这个距离也会受 repulsion。
+                //支持设置成数组表达边长的范围，此时不同大小的值会线性映射到不同的长度。值越小则长度越长。
+            },
+            data: Data,
+            links: links,
+            categories: [
+                { //节点分类的类目
+                    'name': '虚拟电厂'
+                },
+            {
+                'name': '虚拟发电机'
+            },
+            {
+                'name': '策略'
+            },
+            {
+                'name': '操作'
+            },
+            {
+                'name': '因子'
+            }
+            ],
+            itemStyle: {
+                normal: {
+                    borderColor: '#fff',
+                    borderWidth: 1,
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.3)'
+                }
+            },
+            focusNodeAdjacency: true,//是否在鼠标移到节点上的时候突出显示节点以及节点的边和邻接节点。
+            roam: true,//是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
+            draggable: false,//节点是否可拖拽
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top',
+                }
+            },
+            lineStyle: {
+                normal: {
+                    color: 'source',
+                    curveness: 0.3,//边的曲度，支持从 0 到 1 的值，值越大曲度越大
+                    type: "solid"
+                }
+            },
+            emphasis: {
+                lineStyle: {
+                    width: 10
+                }
+            }
+        }]
+    };
+    Chart.setOption(option);
+  
 }
