@@ -757,7 +757,7 @@ var LoadTestChart = function ()
     item.name = "虚拟电厂";
     item.symbol = "circle";
     item.symbolSize = 160;
-    item.category = "虚拟电厂";
+    item.category = 0;
     item.value = TotalValue;
     Data.push(item);
 
@@ -771,7 +771,7 @@ var LoadTestChart = function ()
         itemS.name = result[i].F_VDName;
         itemS.symbol = "circle";
         itemS.symbolSize = 70;
-        itemS.category = "虚拟发电机";
+        itemS.category = 1;
         itemS.value = result[i].F_Value;
         Data.push(itemS);
 
@@ -790,7 +790,7 @@ var LoadTestChart = function ()
             itemB.name = result[i].StrategyInfo[j].F_VDOSName;
             itemB.symbol = "circle";
             itemB.symbolSize = 30;
-            itemB.category = "策略";
+            itemB.category = 2;
             itemB.value = result[i].StrategyInfo[j].F_Value;
             Data.push(itemB);
 
@@ -810,7 +810,7 @@ var LoadTestChart = function ()
                 itemB.name = result[i].StrategyInfo[j].OperationInfo[op].FName;
                 itemB.symbol = "circle";
                 itemB.symbolSize = 30;
-                itemB.category = "操作";
+                itemB.category = 3;
                 itemB.value = result[i].StrategyInfo[j].OperationInfo[op].F_Value;
                 Data.push(itemB);
 
@@ -851,7 +851,7 @@ var LoadTestChart = function ()
                         itemB.name = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_VFName;
                         itemB.symbol = "circle";
                         itemB.symbolSize = 30;
-                        itemB.category = "因子";
+                        itemB.category = 4;
                         itemB.value = result[i].StrategyInfo[j].OperationInfo[op].FactorInfo[fi].F_MaxLoad;
                         Data.push(itemB);
                     }
@@ -928,7 +928,12 @@ var LoadTestChart = function ()
                 'name': '操作'
             },
             {
-                'name': '因子'
+                'name': '因子',
+                itemStyle: {
+                    normal: {
+                        color: '#ff7f50'
+                    }
+                }
             }
             ],
             itemStyle: {
