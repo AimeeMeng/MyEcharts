@@ -96,6 +96,8 @@
   <ItemGroup>
     <Content Include="HTML\ChartTree.html" />
     <Content Include="HTML\ChartTree.js" />
+    <Content Include="HTML\mapLine.html" />
+    <Content Include="HTML\mapLine.js" />
     <Content Include="JS\PageLiZi\canvas-nest.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
