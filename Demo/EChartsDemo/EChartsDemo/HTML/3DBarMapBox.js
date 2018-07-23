@@ -17,6 +17,7 @@ function LoadChart() {
     //myChart.showLoading();
     myChart.setOption({
         visualMap: {//地图的指示图  值变化颜色
+            type: 'piecewise', //分段型， 连续型continuous
             show: true,
             calculable: true,//是否显示拖拽用的手柄（手柄能拖拽调整选中范围）
             realtime: true,//是否拖动时实时变化
@@ -26,6 +27,15 @@ function LoadChart() {
             outOfRange: {//定义 在选中范围外 的视觉元素
                 colorAlpha: 0
             },
+    //        pieces: [
+    //{min: 1500}, // 不指定 max，表示 max 为无限大（Infinity）。
+    //{min: 900, max: 1500},
+    //{min: 310, max: 1000},
+    //{min: 200, max: 300},
+    //{min: 10, max: 200, label: '10 到 200（自定义label）'},
+    //{value: 123, label: '123（自定义特殊颜色）', color: 'grey'}, // 表示 value 等于 123 的情况。
+    //{max: 5}     // 不指定 min，表示 min 为无限大（-Infinity）。
+    //        ],
             max: data[1]//最大值 json数据传递
         },
         mapbox: {
@@ -162,6 +172,21 @@ function LoadChart() {
         //}
         ]
     });
+
+    //在 visualMap 组件所控制的 series 中，如果 series 中某个数据项需要避开 visualMap 映射，可以这么配置：
+    //series : [
+    //    {name: 'Shanghai', value: 251},
+    //    {name: 'Haikou', value: 21},
+    //    // 设置 `visualMap: false` 则 visualMap 不对此项进行控制，此时系列
+    //    // 可使用自身的视觉参数（color/symbol/ ...控制此项的显示。
+    //    {name: 'Beijing', value: 821, visualMap: false},
+    //    ...
+    //    ]
+    //分段型视觉映射组件，有三种模式：
+    //连续型数据平均分段: 依据 visualMap-piecewise.splitNumber 来自动平均分割成若干块。
+    //连续型数据自定义分段: 依据 visualMap-piecewise.pieces 来定义每块范围。
+    //离散数据根据类别分段: 类别定义在 visualMap-piecewise.categories 中。
+
 }
 
 //mapbox地图展示3D建筑
