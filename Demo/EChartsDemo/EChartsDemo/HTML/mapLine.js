@@ -562,3 +562,271 @@ var LoadMapChart2 = function ()
     }
     chart.setOption(option);
 }
+
+//项目完整版
+//包括设置线的颜色、线动效的颜色、呼吸点的大小、地图背景内容等
+var LoadChart = function () {
+    $.ajax({
+        type: 'post',
+        async: true,
+        url: rootUrl + "GridTopology/GetSubstationData",
+        dataType: 'json',
+        data: {},
+        success: function (res) {
+            if (res != null && res.length > 2) {
+                $("#FirstCount").html(res[0].NodeList.length);
+                $("#FirstName").html(res[0].SubstationType);
+                $("#SecendCount").html(res[1].NodeList.length);
+                $("#SecendName").html(res[1].SubstationType);
+                $("#ThridCount").html(res[2].NodeList.length);
+                $("#ThridName").html(res[2].SubstationType);
+
+
+                var isEffect = true; //是否要动效
+                var lineWidth = 2; //线条宽度
+                var color = ['#d1374e', '#febd6b', '#6deac8', '#6fe683', '#e65341', '#00baff', '#ae82fe'];
+                var colorEffect = ['#ee6282', '#eee9af', '#c9ece9', '#6fe683', '#e65341', '#00baff', '#ae82fe'];
+                var symbolsize = [25, 15, 8];
+                var legendData = new Array();
+                var seriesData = new Array();
+
+                for (var ri = 0; ri < res.length; ri++) {
+                    legendData.push(res[ri].SubstationType);
+                    var linksData = new Array();
+                    var result = res[ri].NodeList;
+                    var linkResult = res[ri].LinkList;
+
+                    var seriesObjet = new Object();
+                    seriesObjet.name = res[ri].SubstationType;
+                    seriesObjet.color = color[ri];
+                    var dataList = new Array();
+                    if (result != null && result.length > 0) {
+                        for (var i = 0; i < result.length; i++) {
+                            var node = new Object();
+                            node.name = result[i].SubstationName;
+                            node.value = [result[i].Long, result[i].Lat];
+                            dataList.push(node);
+                        }
+                        seriesObjet.data = dataList;
+                        seriesObjet.type = 'effectScatter';
+                        seriesObjet.coordinateSystem = 'bmap';
+                        seriesObjet.symbolSize = symbolsize[ri];
+                        seriesObjet.emphasis = {
+                            label: {
+                                show: true,
+                                fontSize: 18,
+                                fontWeight: 'bold',
+                                formatter: function (params) {
+                                    return params.data.name
+                                }
+                            }
+                        }
+                        seriesData.push(seriesObjet);
+                    }
+
+                    if (linkResult != null && linkResult.length > 0) {
+                        for (var j = 0; j < linkResult.length; j++) {
+                            linksData.push({
+                                name: linkResult[j].BeginNodeName,
+                                toname: linkResult[j].EndNodeName,
+                                coords: [[linkResult[j].BeginNodeLong, linkResult[j].BeginNodeLat], [linkResult[j].EndNodeLong, linkResult[j].EndNodeLat]],
+                                lineStyle: {
+                                    width: 2,
+                                    color: color[ri],
+                                    curveness: 0.3
+                                },
+                                emphasis: {
+                                    lineStyle: {
+                                        width: 3
+                                    },
+                                    label: {
+                                        show: true,
+                                        fontSize: 18,
+                                        fontWeight: 'bold',
+                                        formatter: function (params) {
+                                            return params.data.name + ' -> ' + params.data.toname
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                        seriesData.push(
+                               {
+                                   type: 'lines',
+                                   coordinateSystem: 'bmap',
+                                   zlevel: 10,
+                                   effect: {
+                                       show: isEffect,
+                                       period: 5,
+                                       trailLength: 0.2,
+                                       color: colorEffect[ri],
+                                       symbolSize: 5
+                                   },
+                                   data: linksData
+
+                               }
+                              );
+                    }
+
+                }
+
+
+                var chart = echarts.init(document.getElementById('MapMain'));
+
+                var option = {
+                    title: {
+                        text: ''
+                    },
+                    bmap: {
+                        center: [121.483278, 31.219834],
+                        zoom: 15,
+                        roam: true,//缩放
+                        //地图样式的调整
+                        mapStyle: {
+                            styleJson: [
+                                 {
+                                     "featureType": "road",
+                                     "elementType": "all",
+                                     "stylers": {
+                                         //"visibility": "off",
+                                         "color": "#515557"
+                                     }
+                                 },
+                                     {
+                                         "featureType": "subway",
+                                         "elementType": "all",
+                                         "stylers": {
+                                             "visibility": "off"
+                                         }
+                                     },
+
+                  {
+                      "featureType": "railway",
+                      "elementType": "all",
+                      "stylers": {
+                          "visibility": "off"
+                      }
+                  },
+                  {
+                      "featureType": "highway",
+                      "elementType": "geometry",
+                      "stylers": {
+                          "color": "#004981"
+                      }
+                  },
+                  {
+                      "featureType": "highway",
+                      "elementType": "geometry.fill",
+                      "stylers": {
+                          "color": "#005b96",
+                          "lightness": 1
+                      }
+                  },
+                  {
+                      "featureType": "highway",
+                      "elementType": "labels",
+                      "stylers": {
+                          "visibility": "off"
+                      }
+                  },
+                  {
+                      "featureType": "arterial",
+                      "elementType": "geometry",
+                      "stylers": {
+                          "color": "#004981"
+                      }
+                  },
+                  {
+                      "featureType": "water",
+                      "elementType": "all",
+                      "stylers": {
+                          //"color": "#13516a"
+                          "color": "#515557"
+                      }
+                  },
+                  {
+                      "featureType": "green",
+                      "elementType": "all",
+                      "stylers": {
+                          "color": "#1f4035",
+                          "visibility": "off"
+                      }
+                  },
+                  {
+                      "featureType": "land",//陆地
+                      "elementType": "all",
+                      "stylers": {
+                          "color": "#303336"
+                      }
+                  },
+                  {
+                      "featureType": "manmade",//人造的
+                      "elementType": "all",
+                      "stylers": {
+                          "color": "#303336"
+                      }
+                  },
+                  {
+                      "featureType": "highway",
+                      "elementType": "all",
+                      "stylers": {
+                          //"color": "#707b81"
+                          //"visibility": "off",
+                          "color": "#3f4347"
+                      }
+                  },
+                  {
+                      "featureType": "arterial",//动脉交通
+                      "elementType": "all",
+                      "stylers": {
+                          //"color": "#707b81"
+                          "color": "#3f4347"
+                      }
+                  },
+                  {
+                      "featureType": "local",//某些建筑边缘线
+                      "elementType": "all",
+                      "stylers": {
+                          "color": "#303336"
+                      }
+                  },
+                  {
+                      "featureType": "poi",//POI是“Point of Interest”的缩写，中文可以翻译为“兴趣点”。
+                      //在地理信息系统中，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等。
+                      "elementType": "all",
+                      "stylers": {
+                          "visibility": "off"
+                      }
+                  }
+                            ]
+                        }
+                    },
+                    label: {
+                        show: true,
+                        formatter: '{b}',
+                        position: 'right'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        x: 'left',
+                        selectedMode: false,
+                        show: true,
+                        textStyle: {
+                            color: "white"
+                        },
+                        data: legendData
+                    },
+                    toolbox: {
+                        show: false
+                    },
+                    series: seriesData
+                }
+                chart.setOption(option);
+            }
+
+
+        },
+        error: function () { }
+    });
+
+}
